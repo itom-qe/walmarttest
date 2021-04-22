@@ -11,9 +11,6 @@ provider "azurerm" {
   version = "=1.44.0"
 }
 
-resource "random_id" "rix" {
-  byte_length = 4
-}
 
 resource "azurerm_resource_group" "main" {
   name     = "${var.prefix}-resources"
@@ -58,8 +55,7 @@ locals {
 
 variable "prefix" {
   description = "The prefix used for all resources in this example"
-  #default = "npr001"
-  default = ${random_id.rix.hex}
+  default = "npr001"
 }
 
 variable "region" {}
