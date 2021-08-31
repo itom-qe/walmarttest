@@ -13,7 +13,7 @@ provider "azurerm" {
 
 
 resource "azurerm_resource_group" "main" {
-  name     = "${var.prefix}-resources"
+  name     = "tfeautorgdnd1"
   location = "${var.region}"
   tags = "${local.common_tags}"
 }
