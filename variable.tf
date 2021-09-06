@@ -24,3 +24,8 @@ variable "tenantId" {}
 variable "dummy" {
   default = "dummy"
 }
+
+variable "dummy1" {
+  default = "dummy"
+}
+
