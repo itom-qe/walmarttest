@@ -1,3 +1,3 @@
-variable "dummy" {
+variable "dummy1" {
 	default = "dummy"
 }
