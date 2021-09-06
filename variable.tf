@@ -15,3 +15,8 @@ variable "cost_center" {
   description = "Cost Center of the User requesting the resources"
   default = "admin"
 }
+
+variable "subscriptionId" {}
+variable "clientId" {}
+variable "clientSecret" {}
+variable "tenantId" {}
