@@ -3,6 +3,10 @@ variable "clientId" {}
 variable "clientSecret" {}
 variable "tenantId" {}
 
+variable "dummy" {
+  default = "dummy"
+}
+
 provider "azurerm" {
   subscription_id = "${var.subscriptionId}"
   client_id       = "${var.clientId}"
