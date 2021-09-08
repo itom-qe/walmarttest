@@ -1,12 +1,15 @@
+resource "random_id" "server" {
+  byte_length = 8
+}
 
 resource "azurerm_resource_group" "main" {
-  name     = "tfeautorgdnd1"
+  name     = "tfeautorgdnd1-${random_id.server.hex}"
   location = "${var.region}"
   tags = "${local.common_tags}"
 }
 
 resource "azurerm_app_service_plan" "main" {
-  name                = "${var.prefix}-asp"
+  name                = "${var.prefix}-asp-${random_id.server.hex}"
   location            = "${azurerm_resource_group.main.location}"
   resource_group_name = "${azurerm_resource_group.main.name}"
 
@@ -18,7 +21,7 @@ resource "azurerm_app_service_plan" "main" {
 }
 
 resource "azurerm_app_service" "main" {
-  name                = "${var.prefix}-appservice"
+  name                = "${var.prefix}-appservice-${random_id.server.hex}"
   location            = "${azurerm_resource_group.main.location}"
   resource_group_name = "${azurerm_resource_group.main.name}"
   app_service_plan_id = "${azurerm_app_service_plan.main.id}"
